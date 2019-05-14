@@ -3,6 +3,7 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 
 import {EmployeeService} from "../employee.service";
+import {EmployeeModel} from "../../employee.model";
 
 
 @Component({
@@ -12,7 +13,7 @@ import {EmployeeService} from "../employee.service";
 })
 export class EmployeeComponent implements OnInit {
   employeeId:string;
-  employee;
+  employee:EmployeeModel;
   error;
 
   constructor(

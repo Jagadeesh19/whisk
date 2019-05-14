@@ -1,5 +1,7 @@
+import {EmployeeModel} from "../employee.model";
+
 export class EmployeeService {
-  private employees=[];
+  private employees:EmployeeModel[]=[];
 
   getEmployee(id:string){
     const employee=this.employees.find(

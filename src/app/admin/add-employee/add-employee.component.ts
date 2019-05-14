@@ -3,7 +3,9 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";
+
 import {EmployeeService} from "../admin-employees/employee.service";
+import {EmployeeModel} from "../employee.model";
 
 @Component({
   selector: 'app-add-employee',
@@ -16,7 +18,7 @@ export class AddEmployeeComponent implements OnInit {
   date:Date;
   maxDate:NgbDateStruct;
   show:boolean=false;
-  employee;
+  employee:EmployeeModel;
   employeeId:string;
   dob:NgbDateStruct;
   animation:boolean=false;
@@ -85,7 +87,6 @@ export class AddEmployeeComponent implements OnInit {
     this.employee=this.addEmployeeForm.value;
     this.employee.joinDate=new Date();
     this.dob=this.employee.dateOfBirth;
-    console.log(this.dob);
     this.employee.dateOfBirth=new Date(this.dob.year,this.dob.month-1,this.dob.day);
     console.log(this.employee.dateOfBirth);
     if (!this.edit){
@@ -108,7 +109,7 @@ export class AddEmployeeComponent implements OnInit {
         })
     }
     else {
-      this.employee.id=this.employeeId;
+      this.employee._id=this.employeeId;
       this.http.post<{message:string}>("http://localhost:3000/api/admin/edit",this.employee)
         .subscribe(
             (response)=>{

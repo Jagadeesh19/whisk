@@ -1,9 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {NavigationEnd, Router} from "@angular/router";
+import {Subscription} from "rxjs";
 
 import {EmployeeService} from "./employee.service";
-import {Subscription} from "rxjs";
+import {EmployeeModel} from "../employee.model";
 
 @Component({
   selector: 'app-admin-employees',
@@ -12,7 +13,7 @@ import {Subscription} from "rxjs";
 })
 export class AdminEmployeesComponent implements OnInit, OnDestroy {
   animation:boolean=true;
-  employees;
+  employees:EmployeeModel[];
   employeeHeaders=[
     "#",
     "Name",
@@ -43,7 +44,7 @@ export class AdminEmployeesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.http.get("http://localhost:3000/api/admin/employees")
-      .subscribe((employees)=>{
+      .subscribe((employees:EmployeeModel[])=>{
         this.employees=employees;
         console.log(this.employees);
         this.employeeService.initialize(this.employees);
