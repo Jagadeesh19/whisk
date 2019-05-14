@@ -1,0 +1,31 @@
+@import "vars";
+
+.btn:hover{
+  color: white;
+  background-color: $main-color;
+}
+
+.btn{
+  color: $main-color;
+  border-color: $main-color;
+  font-weight: bold;
+}
+
+.btn:focus{
+  box-shadow: none;
+}
+
+.mat-input-element{
+  caret-color: #00695c;
+}
+
+.form-control:focus{
+  border-color: $main-color;
+  border-width: $form-control-width;
+  box-shadow: none;
+}
+
+.spinner-border{
+  width: 5rem;
+  height: 5rem;
+}

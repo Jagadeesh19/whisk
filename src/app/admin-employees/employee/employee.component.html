@@ -1,0 +1,35 @@
+<div class="row mt-5 justify-content-center">
+  <div class="col-4">
+    <div class="card text-center shadow-sm">
+      <div class="card-header">
+        Employee details
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">
+          {{employee.name}}
+        </h5>
+        <h5 class="card-title">
+          {{employee.email}}
+        </h5>
+        <h5>
+          Supervisor: {{(employee.supervisor)?(employee.supervisor.name):"None"}}
+        </h5>
+
+        <button class="btn" (click)="onEditEmployee()">
+          Edit
+        </button>
+        <button class="btn ml-3" (click)="onRemoveEmployee()">
+          Remove
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div
+  class="text-danger mt-3 text-center"
+  *ngIf="error"
+>
+  <h5>{{error}}</h5>
+</div>
