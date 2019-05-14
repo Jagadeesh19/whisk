@@ -4,7 +4,7 @@ import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";
 
-import {EmployeeService} from "../admin-employees/employee.service";
+import {EmployeeService} from "../employees/employee.service";
 import {EmployeeModel} from "../employee.model";
 
 @Component({

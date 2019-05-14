@@ -4,16 +4,16 @@ import {HttpClientModule} from '@angular/common/http'
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule, Routes} from "@angular/router";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { HeaderComponent } from './header/header.component';
 import {AppRoutingModule} from "./app-routing.module";
-import { AddEmployeeComponent } from './add-employee/add-employee.component';
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import { AdminEmployeesComponent } from './admin-employees/admin-employees.component';
-import { EmployeeComponent } from './admin-employees/employee/employee.component';
-import {EmployeeService} from "./admin-employees/employee.service";
+import { AddEmployeeComponent } from './admin/add-employee/add-employee.component';
+import { EmployeesComponent } from './admin/employees/employees.component';
+import { EmployeeComponent } from './admin/employees/employee/employee.component';
+import {EmployeeService} from "./admin/employees/employee.service";
 
 
 @NgModule({
@@ -22,7 +22,7 @@ import {EmployeeService} from "./admin-employees/employee.service";
     LoginComponent,
     HeaderComponent,
     AddEmployeeComponent,
-    AdminEmployeesComponent,
+    EmployeesComponent,
     EmployeeComponent
   ],
   imports: [

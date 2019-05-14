@@ -137,7 +137,7 @@ exports.postRemoveEmployees=(req,res,next)=>{
 }
 
 exports.postEditEmployees=(req,res,next)=>{
-  const employeeId=req.body.id;
+  const employeeId=req.body._id;
   const name=req.body.name;
   const email=req.body.email;
   const joinDate=req.body.joinDate;

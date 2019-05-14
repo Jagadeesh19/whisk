@@ -1,8 +1,9 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
-import {AddEmployeeComponent} from "./add-employee/add-employee.component";
-import {AdminEmployeesComponent} from "./admin-employees/admin-employees.component";
-import {EmployeeComponent} from "./admin-employees/employee/employee.component";
+import {AddEmployeeComponent} from "./admin/add-employee/add-employee.component";
+import {EmployeesComponent} from "./admin/employees/employees.component";
+import {EmployeeComponent} from "./admin/employees/employee/employee.component";
+import {LoginComponent} from "./auth/login/login.component";
 
 const appRoutes:Routes=[
   {
@@ -15,7 +16,7 @@ const appRoutes:Routes=[
   },
   {
     path:"admin/employees",
-    component: AdminEmployeesComponent,
+    component: EmployeesComponent,
     children:[
       {
         path:":id",
@@ -23,6 +24,10 @@ const appRoutes:Routes=[
       }
     ],
     runGuardsAndResolvers: "always"
+  },
+  {
+    path:"login",
+    component:LoginComponent
   }
 ]
 

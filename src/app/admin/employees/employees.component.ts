@@ -8,10 +8,10 @@ import {EmployeeModel} from "../employee.model";
 
 @Component({
   selector: 'app-admin-employees',
-  templateUrl: './admin-employees.component.html',
-  styleUrls: ['./admin-employees.component.scss']
+  templateUrl: './employees.component.html',
+  styleUrls: ['./employees.component.scss']
 })
-export class AdminEmployeesComponent implements OnInit, OnDestroy {
+export class EmployeesComponent implements OnInit, OnDestroy {
   animation:boolean=true;
   employees:EmployeeModel[];
   employeeHeaders=[
