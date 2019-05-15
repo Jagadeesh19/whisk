@@ -13,6 +13,6 @@ app.use(bypassCORS);
 
 app.use("/api/admin",adminRoutes);
 
-app.use("api",adminRoutes);
+app.use("/api",authRoutes);
 
 module.exports=app;

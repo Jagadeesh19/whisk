@@ -1,16 +1,27 @@
 const crypto=require("crypto");
 
 const bcrypt=require("bcrypt");
+const nodemailer=require("nodemailer");
+const sendgrid=require("nodemailer-sendgrid-transport");
 
 const Employee=require("../models/employee");
 
+const transporter=nodemailer.createTransport(sendgrid({
+  auth:{
+    api_key:"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"
+  }
+}))
+
 exports.postAddEmployee=(req,res,next)=>{
   const name=req.body.name;
-  const email=req.body.email;
+  const email=req.body.email.toLowerCase();
   const joinDate=req.body.joinDate;
   const dateOfBirth=req.body.dateOfBirth;
   const gender=req.body.gender;
-  const supervisorEmail=req.body.supervisorEmail;
+  let supervisorEmail=req.body.supervisorEmail;
+  if (supervisorEmail){
+    supervisorEmail=supervisorEmail.toLowerCase();
+  }
   let password;
   let employee;
 
@@ -39,6 +50,16 @@ exports.postAddEmployee=(req,res,next)=>{
             .then(result=>{
               res.json({
                 message:"Success"
+              })
+              return transporter.sendMail({
+                to: email,
+                from: "admin@whisk.com",
+                subject:"account created",
+                html:`
+                <h3>Your account has been created at Whisk</h3>
+                <h3>username: ${email}<br/>password: ${password}</h3>
+                <h3>Kindly change your password.</h3>
+              `
               })
             })
             .catch(err=>{
@@ -69,6 +90,16 @@ exports.postAddEmployee=(req,res,next)=>{
             .then(result=>{
               res.json({
                 message:"Success"
+              })
+              return transporter.sendMail({
+                to: email,
+                from: "admin@whisk.com",
+                subject:"account created",
+                html:`
+                <h3>Your account has been created at Whisk</h3>
+                <h3>username: ${email}<br/>password: ${password}</h3>
+                <h3>Kindly change your password.</h3>
+              `
               })
             })
             .catch(err=>{

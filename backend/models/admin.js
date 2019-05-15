@@ -14,7 +14,7 @@ const adminSchema=new Schema({
     },
     email:{
         type:String,
-        default: "",
+        default: "yeturujagadeesh@gmail.com",
         required:true
     }
 })

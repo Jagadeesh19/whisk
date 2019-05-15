@@ -35,9 +35,15 @@
         class="btn"
         type="submit"
         [disabled]="loginForm.invalid"
+        *ngIf="!isLoading"
       >
         Login
       </button>
+      <div class="d-flex justify-content-center mt-5" *ngIf="isLoading">
+        <div class="spinner-border ">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
     </form>
   </div>
 </div>

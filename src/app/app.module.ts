@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http'
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule, Routes} from "@angular/router";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -14,6 +14,7 @@ import { AddEmployeeComponent } from './admin/add-employee/add-employee.componen
 import { EmployeesComponent } from './admin/employees/employees.component';
 import { EmployeeComponent } from './admin/employees/employee/employee.component';
 import {EmployeeService} from "./admin/employees/employee.service";
+import {AuthInterceptor} from "./auth/auth-interceptor";
 
 
 @NgModule({
@@ -35,7 +36,12 @@ import {EmployeeService} from "./admin/employees/employee.service";
     ReactiveFormsModule
   ],
   providers: [
-    EmployeeService
+    EmployeeService,
+    {
+      multi:true,
+      provide:HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -60,7 +60,7 @@ export class AddEmployeeComponent implements OnInit {
     this.addEmployeeForm=new FormGroup({
       "name":new FormControl(name,Validators.required),
       "email": new FormControl(email,[Validators.required,Validators.email]),
-      "gender":new FormControl(gender),
+      "gender":new FormControl(gender,Validators.required),
       "dateOfBirth": new FormControl(dateOfBirth,Validators.required),
       "supervisorEmail": new FormControl(supervisorEmail,Validators.email)
     });
