@@ -15,6 +15,7 @@ import { EmployeesComponent } from './admin/employees/employees.component';
 import { EmployeeComponent } from './admin/employees/employee/employee.component';
 import {EmployeeService} from "./admin/employees/employee.service";
 import {AuthInterceptor} from "./auth/auth-interceptor";
+import { ApplyLeaveComponent } from './employee/apply-leave/apply-leave.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {AuthInterceptor} from "./auth/auth-interceptor";
     HeaderComponent,
     AddEmployeeComponent,
     EmployeesComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    ApplyLeaveComponent
   ],
   imports: [
     BrowserModule,

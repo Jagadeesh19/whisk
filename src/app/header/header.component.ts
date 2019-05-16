@@ -12,13 +12,21 @@ export class HeaderComponent implements OnInit ,OnDestroy{
   navbarOpen:boolean=false;
   private authListenerSub:Subscription;
   isAuth:boolean=false;
+  isAdmin:boolean;
 
   constructor(private authService:AuthService) { }
 
   ngOnInit() {
+    this.isAuth=this.authService.getAuthStatus();
+    this.isAdmin=(this.authService.getUserType()==="admin");
     this.authListenerSub=this.authService.getAuthStatusListener()
       .subscribe((authStatus:boolean)=>{
         this.isAuth=authStatus;
+        if (this.isAuth){
+          this.isAdmin=(this.authService.getUserType()==="admin");
+          console.log(this.isAdmin);
+        }
+
       })
   }
 

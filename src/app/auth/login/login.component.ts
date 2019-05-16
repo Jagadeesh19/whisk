@@ -10,6 +10,8 @@ import {AuthService} from "../auth.service";
 })
 export class LoginComponent implements OnInit {
   isLoading=false;
+  message:string;
+  show=false;
 
   constructor(private authService:AuthService) { }
 
@@ -18,6 +20,12 @@ export class LoginComponent implements OnInit {
 
   onLogin(form:NgForm){
     this.isLoading=true;
+    this.authService.getLoadingListener().subscribe(err=>{
+      this.isLoading=false;
+      this.message="Please enter valid username and password";
+      this.show=true;
+    })
+    this.show=false;
     this.authService.login(form.value.username,form.value.password)
   }
 

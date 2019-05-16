@@ -6,6 +6,7 @@ import {EmployeesComponent} from "./admin/employees/employees.component";
 import {EmployeeComponent} from "./admin/employees/employee/employee.component";
 import {LoginComponent} from "./auth/login/login.component";
 import {AuthGuard} from "./auth/auth.guard";
+import {ApplyLeaveComponent} from "./employee/apply-leave/apply-leave.component";
 
 const appRoutes:Routes=[
   {
@@ -33,6 +34,11 @@ const appRoutes:Routes=[
   {
     path:"login",
     component:LoginComponent
+  },
+  {
+    path:"apply-leave",
+    component:ApplyLeaveComponent,
+    canActivate:[AuthGuard]
   }
 ]
 

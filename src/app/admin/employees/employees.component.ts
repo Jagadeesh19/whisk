@@ -46,7 +46,6 @@ export class EmployeesComponent implements OnInit, OnDestroy {
     this.http.get("http://localhost:3000/api/admin/employees")
       .subscribe((employees:EmployeeModel[])=>{
         this.employees=employees;
-        console.log(this.employees);
         this.employeeService.initialize(this.employees);
         this.animation=false;
       })

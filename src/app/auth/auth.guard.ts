@@ -18,9 +18,15 @@ export class AuthGuard implements CanActivate{
   ):Observable<boolean> | Promise<boolean> | boolean
   {
     const isAuth=this.authService.getAuthStatus();
+    const userType=this.authService.getUserType();
+    const routeType=state.url.split("/")[1];
+    console.log(userType,routeType);
     if (!isAuth){
       this.router.navigate(["/login"]);
     }
-    return isAuth;
+    if ((routeType==="admin" && userType==="admin") || (routeType!=="admin" && userType!=="admin")){
+      return true;
+    }
+    return false;
   }
 }
