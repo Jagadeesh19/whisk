@@ -29,3 +29,13 @@
   width: 5rem;
   height: 5rem;
 }
+
+
+.form-text{
+  color: red;
+}
+
+
+input.ng-invalid.ng-touched{
+  border-color: red;
+}

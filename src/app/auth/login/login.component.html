@@ -31,14 +31,19 @@
           Enter a valid password
         </span>
       </div>
-      <button
-        class="btn"
-        type="submit"
-        [disabled]="loginForm.invalid"
-        *ngIf="!isLoading"
-      >
-        Login
-      </button>
+      <div class=" d-flex justify-content-between" *ngIf="!isLoading">
+        <button
+          class="btn"
+          type="submit"
+          [disabled]="loginForm.invalid"
+
+        >
+          Login
+        </button>
+        <div>
+          <a class="reset-password" routerLink="/reset-password">Reset Password</a>
+        </div>
+      </div>
       <div class="d-flex justify-content-center mt-5" *ngIf="isLoading">
         <div class="spinner-border ">
           <span class="sr-only">Loading...</span>

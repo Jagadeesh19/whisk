@@ -16,6 +16,10 @@ import { EmployeeComponent } from './admin/employees/employee/employee.component
 import {EmployeeService} from "./admin/employees/employee.service";
 import {AuthInterceptor} from "./auth/auth-interceptor";
 import { ApplyLeaveComponent } from './employee/apply-leave/apply-leave.component';
+import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
+import { NewPasswordComponent } from './auth/new-password/new-password.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 @NgModule({
@@ -26,7 +30,11 @@ import { ApplyLeaveComponent } from './employee/apply-leave/apply-leave.componen
     AddEmployeeComponent,
     EmployeesComponent,
     EmployeeComponent,
-    ApplyLeaveComponent
+    ApplyLeaveComponent,
+    ResetPasswordComponent,
+    NewPasswordComponent,
+    PageNotFoundComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

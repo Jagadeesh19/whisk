@@ -88,7 +88,9 @@ const employeeSchema=new Schema({
         type: [leaveStructure],
         required:true,
         default: []
-    }
+    },
+    resetToken:String,
+    resetTokenExpiration:Date
 })
 
 employeeSchema.plugin(uniqueValidator);

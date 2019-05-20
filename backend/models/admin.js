@@ -16,7 +16,9 @@ const adminSchema=new Schema({
         type:String,
         default: "yeturujagadeesh@gmail.com",
         required:true
-    }
+    },
+    resetToken:String,
+    resetTokenExpiration:Date
 })
 
 module.exports=mongoose.model("Admin",adminSchema);
