@@ -53,4 +53,8 @@ export class EmployeeComponent implements OnInit {
       )
   }
 
+  closeAlert(){
+    this.error=null;
+  }
+
 }

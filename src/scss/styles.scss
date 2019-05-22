@@ -36,6 +36,7 @@
 }
 
 
-input.ng-invalid.ng-touched{
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched{
   border-color: red;
 }

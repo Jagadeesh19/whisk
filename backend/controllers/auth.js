@@ -20,7 +20,6 @@ exports.postLogin=(req,res,next)=>{
  const password=req.body.password;
  let user;
 
- console.log("I am called");
 
  if (username==="admin"){
    Admin.findOne()
@@ -47,7 +46,8 @@ exports.postLogin=(req,res,next)=>{
        res.status(200).json({
          token: token,
          expiresIn: 3600,
-         userType:"admin"
+         userType:"admin",
+         userId:user._id
        })
      })
      .catch(err=>{
@@ -86,7 +86,8 @@ exports.postLogin=(req,res,next)=>{
        res.status(200).json({
          token: token,
          expiresIn: 3600,
-         userType:"employee"
+         userType:"employee",
+         userId:user._id
        })
      })
      .catch(err=>{

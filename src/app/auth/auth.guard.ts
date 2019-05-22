@@ -20,7 +20,6 @@ export class AuthGuard implements CanActivate{
     const isAuth=this.authService.getAuthStatus();
     const userType=this.authService.getUserType();
     const routeType=state.url.split("/")[1];
-    console.log(userType,routeType);
     if (!isAuth){
       this.router.navigate(["/login"]);
     }

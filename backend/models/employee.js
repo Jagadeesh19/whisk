@@ -22,8 +22,7 @@ const leaveStructure={
     default:"Not accepted"
   },
   contactInfo:{
-    type:String,
-    required: true
+    type:String
   }
 }
 
@@ -68,6 +67,11 @@ const employeeSchema=new Schema({
     dateOfBirth:{
         type: Date,
         required: true
+    },
+    compOffBalances:{
+      type: Number,
+      required:true,
+      default: 0
     },
     WFH:{
         type:[leaveStructure],

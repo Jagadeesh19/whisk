@@ -29,4 +29,8 @@ export class LoginComponent implements OnInit {
     this.authService.login(form.value.username,form.value.password)
   }
 
+  closeAlert(){
+    this.show=false;
+  }
+
 }

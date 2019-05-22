@@ -26,10 +26,15 @@
   </div>
 </div>
 
-
-<div
-  class="text-danger mt-3 text-center"
-  *ngIf="error"
->
-  <h5>{{error}}</h5>
+<div class="row justify-content-center">
+  <div class="col-6">
+    <ngb-alert
+      class="mt-4"
+      type="danger"
+      *ngIf="error"
+      (close)="closeAlert()"
+    >
+      {{error}}
+    </ngb-alert>
+  </div>
 </div>

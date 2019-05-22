@@ -129,4 +129,8 @@ export class AddEmployeeComponent implements OnInit {
     }
   }
 
+  closeAlert(){
+    this.show=false;
+  }
+
 }

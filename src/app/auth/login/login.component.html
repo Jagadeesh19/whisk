@@ -50,12 +50,14 @@
         </div>
       </div>
 
-      <div
-        class="mt-3 text-center text-danger"
+      <ngb-alert
+        class="mt-4"
+        type="danger"
         *ngIf="show"
+        (close)="closeAlert()"
       >
-        <h5>{{message}}</h5>
-      </div>
+        {{message}}
+      </ngb-alert>
     </form>
   </div>
 </div>
