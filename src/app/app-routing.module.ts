@@ -11,6 +11,8 @@ import {ResetPasswordComponent} from "./auth/reset-password/reset-password.compo
 import {NewPasswordComponent} from "./auth/new-password/new-password.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {HomePageComponent} from "./home-page/home-page.component";
+import {LeaveStatusComponent} from "./employee/leave-status/leave-status.component";
+import {LeavesComponent} from "./employee/leave-status/leaves/leaves.component";
 
 const appRoutes:Routes=[
   {
@@ -55,6 +57,17 @@ const appRoutes:Routes=[
     path:"apply-leave",
     component:ApplyLeaveComponent,
     canActivate:[AuthGuard]
+  },
+  {
+    path:"leave-status",
+    component:LeaveStatusComponent,
+    canActivate:[AuthGuard],
+    children:[
+      {
+        path:"leaves/:leaveType",
+        component: LeavesComponent
+      }
+    ]
   },
   {
     path: "not-found",

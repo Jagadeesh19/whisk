@@ -54,7 +54,7 @@
             [minDate]="minStartDate"
           >
           <div class="input-group-append">
-            <button class="btn"  type="button" (click)="d1.toggle()">
+            <button class="btn btn-outline-secondary"  type="button" (click)="d1.toggle()">
               <i class="fas fa-calendar fa-lg"></i>
             </button>
           </div>
@@ -80,7 +80,7 @@
             [minDate]="applyLeaveForm.get('startDate').value"
           >
           <div class="input-group-append">
-            <button class="btn"  type="button" (click)="d2.toggle()">
+            <button class="btn btn-outline-secondary"  type="button" (click)="d2.toggle()">
               <i class="fas fa-calendar fa-lg"></i>
             </button>
           </div>
@@ -93,9 +93,28 @@
         </span>
       </div>
 
+      <div class="form-group">
+        <label for="contactInfo">Contact Details</label>
+        <textarea
+          id="contactInfo"
+          cols="30"
+          rows="5"
+          class="form-control"
+          formControlName="contactInfo"
+        >
+
+        </textarea>
+        <span
+          class="form-text"
+          *ngIf="applyLeaveForm.get('contactInfo').invalid && applyLeaveForm.get('contactInfo').touched"
+        >
+          This field is required
+        </span>
+      </div>
+
 
       <button
-        class="btn"
+        class="btn btn-primary"
         *ngIf="!isLoading"
         type="submit"
         [disabled]="applyLeaveForm.invalid"

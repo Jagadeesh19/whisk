@@ -19,10 +19,15 @@ const leaveStructure={
   leaveStatus:{
     type:String,
     required:true,
-    default:"Not accepted"
+    default:"Leave applied"
   },
   contactInfo:{
-    type:String
+    type:String,
+    required:true
+  },
+  appliedDate:{
+    type:Date,
+    required:true
   }
 }
 

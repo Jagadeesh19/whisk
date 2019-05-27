@@ -4,6 +4,7 @@ import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
 import {HttpClient} from "@angular/common/http";
 
 import {AuthService} from "../../auth/auth.service";
+import {LeaveModel} from "../leave-status/leave.model";
 
 @Component({
   selector: 'app-apply-leave',
@@ -35,7 +36,8 @@ export class ApplyLeaveComponent implements OnInit {
       "leaveType":new FormControl("Annual leave"),
       "startDate":new FormControl(null,Validators.required),
       "endDate":new FormControl(null,Validators.required),
-      "leaveDescription": new FormControl(null,Validators.required)
+      "leaveDescription": new FormControl(null,Validators.required),
+      "contactInfo": new FormControl(null,Validators.required)
     })
 
     this.minStartDate=this.dateToNgb(new Date());
@@ -56,10 +58,11 @@ export class ApplyLeaveComponent implements OnInit {
   onApplyLeave(){
     this.isLoading=true;
     this.show=false;
-    const leave=this.applyLeaveForm.value;
+    const leave:LeaveModel=this.applyLeaveForm.value;
     leave.employeeId=this.userId;
     leave.startDate=this.ngbToDate(leave.startDate);
     leave.endDate=this.ngbToDate(leave.endDate);
+    leave.appliedDate=new Date();
 
     this.http.post<{message:string}>("http://localhost:3000/api/employee/apply-leave",leave)
       .subscribe(

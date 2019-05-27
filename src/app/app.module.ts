@@ -20,6 +20,11 @@ import { ResetPasswordComponent } from './auth/reset-password/reset-password.com
 import { NewPasswordComponent } from './auth/new-password/new-password.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { LeaveStatusComponent } from './employee/leave-status/leave-status.component';
+import { LeavesComponent } from './employee/leave-status/leaves/leaves.component';
+import {AuthService} from "./auth/auth.service";
+import {LeavesService} from "./employee/leave-status/leaves.service";
+import { LeaveComponent } from './employee/leave-status/leaves/leave/leave.component';
 
 
 @NgModule({
@@ -34,7 +39,10 @@ import { HomePageComponent } from './home-page/home-page.component';
     ResetPasswordComponent,
     NewPasswordComponent,
     PageNotFoundComponent,
-    HomePageComponent
+    HomePageComponent,
+    LeaveStatusComponent,
+    LeavesComponent,
+    LeaveComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +55,8 @@ import { HomePageComponent } from './home-page/home-page.component';
   ],
   providers: [
     EmployeeService,
+    AuthService,
+    LeavesService,
     {
       multi:true,
       provide:HTTP_INTERCEPTORS,

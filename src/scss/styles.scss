@@ -1,23 +1,23 @@
 @import "vars";
 
-.btn:hover{
-  color: white;
-  background-color: $main-color;
-}
+//button.btn:hover{
+//  color: white;
+//  background-color: $main-color;
+//}
+//
+//button.btn{
+//  color: $main-color;
+//  border-color: $main-color;
+//  font-weight: bold;
+//}
+//
+//button.btn:focus{
+//  box-shadow: none;
+//}
 
-.btn{
-  color: $main-color;
-  border-color: $main-color;
-  font-weight: bold;
-}
-
-.btn:focus{
-  box-shadow: none;
-}
-
-.mat-input-element{
-  caret-color: #00695c;
-}
+//.mat-input-element{
+//  caret-color: #00695c;
+//}
 
 .form-control:focus{
   border-color: $main-color;
