@@ -3,6 +3,30 @@ const uniqueValidator=require("mongoose-unique-validator");
 
 const Schema=mongoose.Schema;
 
+const weekendStructure={
+  workDescription: {
+    type:String,
+    required:true
+  },
+  startDate:{
+    type:Date,
+    required:true
+  },
+  endDate:{
+    type:Date,
+    required:true
+  },
+  days:{
+    type:Number,
+    required:true
+  },
+  status:{
+    type:String,
+    required:true,
+    default:"applied"
+  }
+}
+
 const leaveStructure={
   startDate:{
     type:Date,
@@ -27,6 +51,10 @@ const leaveStructure={
   },
   appliedDate:{
     type:Date,
+    required:true
+  },
+  days:{
+    type:Number,
     required:true
   }
 }
@@ -97,6 +125,11 @@ const employeeSchema=new Schema({
         type: [leaveStructure],
         required:true,
         default: []
+    },
+    weekendWork:{
+      type:[weekendStructure],
+      required:true,
+      default:[]
     },
     resetToken:String,
     resetTokenExpiration:Date

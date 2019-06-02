@@ -5,7 +5,10 @@ module.exports=(req,res,next)=>{
 
   Employee.findById(employeeId)
     .then(employee=>{
-      const leavesCount=employee.annual.length;
+      let leavesCount=0;
+      for (let leave of employee.annual){
+        leavesCount+=leave.days;
+      }
       let leaveBalances;
       const joinDate=employee.joinDate;
       const currentDate=new Date();

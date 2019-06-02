@@ -16,7 +16,7 @@ export class LeaveComponent implements OnInit {
   ngOnInit() {
     this.leave.startDate=new Date(this.leave.startDate);
     this.leave.endDate=new Date(this.leave.endDate);
-    this.nofDays=(this.leave.endDate-this.leave.startDate)/(3600000*24);
+    this.nofDays=this.leave.days;
   }
 
 }

@@ -1,40 +1,21 @@
 <div class="row justify-content-around">
   <div class="col-6">
-    <form class="mt-3" [formGroup]="applyLeaveForm" (ngSubmit)="onApplyLeave()" >
+    <form class="mt-3" [formGroup]="leaveGrantForm" (ngSubmit)="onLeaveGrant()" >
 
       <div class="form-group">
-        <label for="leaveType">Leave Type</label>
-        <select
-          id="leaveType"
-          class="form-control"
-          formControlName="leaveType"
-        >
-          <option *ngFor="let leaveType of leaveTypes" [value]="leaveType">
-            {{leaveType}}
-          </option>
-        </select>
-        <span
-          class="form-text"
-          *ngIf="applyLeaveForm.get('leaveType').invalid && applyLeaveForm.get('leaveType').touched"
-        >
-      This field is required
-    </span>
-      </div>
-
-      <div class="form-group">
-        <label for="leaveDescription">Leave Description</label>
+        <label for="workDescription">Work Description</label>
         <textarea
-          id="leaveDescription"
+          id="workDescription"
           cols="30"
           rows="5"
           class="form-control"
-          formControlName="leaveDescription"
+          formControlName="workDescription"
         >
 
         </textarea>
         <span
           class="form-text"
-          *ngIf="applyLeaveForm.get('leaveDescription').invalid && applyLeaveForm.get('leaveDescription').touched"
+          *ngIf="leaveGrantForm.get('workDescription').invalid && leaveGrantForm.get('workDescription').touched"
         >
           This field is required
         </span>
@@ -51,7 +32,7 @@
             name="dateOfBirth"
             formControlName="startDate"
             id="startDate"
-            [minDate]="minStartDate"
+            [minDate]="minDate"
           >
           <div class="input-group-append">
             <button class="btn btn-outline-secondary"  type="button" (click)="d1.toggle()">
@@ -61,7 +42,7 @@
         </div>
         <span
           class="form-text"
-          *ngIf="applyLeaveForm.get('startDate').invalid && applyLeaveForm.get('startDate').touched"
+          *ngIf="leaveGrantForm.get('startDate').invalid && leaveGrantForm.get('startDate').touched"
         >
           Please enter a valid date
         </span>
@@ -77,8 +58,8 @@
             placeholder="yyyy-mm-dd"
             formControlName="endDate"
             id="endDate"
+            [minDate]="leaveGrantForm.get('startDate').value"
             (dateSelect)="updateDays()"
-            [minDate]="applyLeaveForm.get('startDate').value"
           >
           <div class="input-group-append">
             <button class="btn btn-outline-secondary"  type="button" (click)="d2.toggle()">
@@ -88,7 +69,7 @@
         </div>
         <span
           class="form-text"
-          *ngIf="applyLeaveForm.get('endDate').invalid && applyLeaveForm.get('endDate').touched"
+          *ngIf="leaveGrantForm.get('endDate').invalid && leaveGrantForm.get('endDate').touched"
         >
           Please enter a valid date
         </span>
@@ -103,22 +84,9 @@
           formControlName="days"
           disabled
         >
-      </div>
-
-      <div class="form-group">
-        <label for="contactInfo">Contact Details</label>
-        <textarea
-          id="contactInfo"
-          cols="30"
-          rows="5"
-          class="form-control"
-          formControlName="contactInfo"
-        >
-
-        </textarea>
         <span
           class="form-text"
-          *ngIf="applyLeaveForm.get('contactInfo').invalid && applyLeaveForm.get('contactInfo').touched"
+          *ngIf="leaveGrantForm.get('days').invalid && leaveGrantForm.get('days').touched"
         >
           This field is required
         </span>
@@ -129,28 +97,23 @@
         class="btn btn-info"
         *ngIf="!isLoading"
         type="submit"
-        [disabled]="applyLeaveForm.invalid"
+        [disabled]="leaveGrantForm.invalid"
       >
         <i class="fas fa-file"></i>
-        Apply Leave
+        Apply Leave Grant
       </button>
     </form>
 
     <ngb-alert
-      id="alert"
       class="mt-5"
       [type]="messageType"
-      (close)="closeAlert()"
+      (close)="show=false"
       *ngIf="show"
     >
       {{alertMessage}}
     </ngb-alert>
 
-    <div
-      class="d-flex justify-content-center mt-5"
-      *ngIf="isLoading"
-      id="spinner"
-    >
+    <div class="d-flex justify-content-center mt-5" *ngIf="isLoading">
       <div class="spinner-border ">
         <span class="sr-only">Loading...</span>
       </div>

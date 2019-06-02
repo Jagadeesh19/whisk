@@ -15,4 +15,7 @@ router.post("/leaves",checkAuth("employee"),updateLeaves,employeeController.getL
 // GET /api/employee/join-date/:employeeId
 router.get("/join-date/:employeeId",checkAuth("employee"),employeeController.getDateOfJoin);
 
+// GET /api/employee/leave-grant
+router.post("/leave-grant",checkAuth("employee"),employeeController.postLeaveGrant);
+
 module.exports=router;

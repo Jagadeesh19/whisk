@@ -13,6 +13,7 @@ import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {HomePageComponent} from "./home-page/home-page.component";
 import {LeaveStatusComponent} from "./employee/leave-status/leave-status.component";
 import {LeavesComponent} from "./employee/leave-status/leaves/leaves.component";
+import {LeaveGrantComponent} from "./employee/leave-grant/leave-grant.component";
 
 const appRoutes:Routes=[
   {
@@ -56,6 +57,11 @@ const appRoutes:Routes=[
   {
     path:"apply-leave",
     component:ApplyLeaveComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path:"leave-grant",
+    component:LeaveGrantComponent,
     canActivate:[AuthGuard]
   },
   {

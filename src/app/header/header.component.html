@@ -43,6 +43,15 @@
         <a class="nav-link" routerLink="leave-status">Track leaves</a>
       </li>
 
+      <li
+        class="nav-item"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact:true}"
+        *ngIf="isAuth && !isAdmin"
+      >
+        <a class="nav-link" routerLink="leave-grant">Leave grant</a>
+      </li>
+
     </ul>
 
     <ul class="navbar-nav ml-auto">

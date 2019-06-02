@@ -25,6 +25,7 @@ import { LeavesComponent } from './employee/leave-status/leaves/leaves.component
 import {AuthService} from "./auth/auth.service";
 import {LeavesService} from "./employee/leave-status/leaves.service";
 import { LeaveComponent } from './employee/leave-status/leaves/leave/leave.component';
+import { LeaveGrantComponent } from './employee/leave-grant/leave-grant.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { LeaveComponent } from './employee/leave-status/leaves/leave/leave.compo
     HomePageComponent,
     LeaveStatusComponent,
     LeavesComponent,
-    LeaveComponent
+    LeaveComponent,
+    LeaveGrantComponent
   ],
   imports: [
     BrowserModule,

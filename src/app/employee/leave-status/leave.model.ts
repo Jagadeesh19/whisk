@@ -6,4 +6,5 @@ export class LeaveModel {
   appliedDate:Date
   contactInfo:string;
   employeeId:string;
+  days:number;
 }
