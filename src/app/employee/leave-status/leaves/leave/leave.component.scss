@@ -1,0 +1,21 @@
+$heading-color: #666;
+
+.leave-wrapper{
+  background-color: aquamarine;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+td{
+  text-align: center;
+}
+
+table{
+  width: 85%;
+  margin: auto;
+}
+
+span{
+  color: $heading-color;
+  margin-right: 0.5rem;
+}

@@ -1,0 +1,13 @@
+<div class="d-flex justify-content-center mt-5" *ngIf="isLoading">
+  <div class="spinner-border ">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+
+<div class="list-group" *ngIf="!isLoading && leaves.length">
+  <app-leave *ngFor="let leave of leaves" [leave]="leave"></app-leave>
+</div>
+
+<div class="list-group-item" *ngIf="!isLoading && !leaves.length">
+  <h5 class="text-center">No leaves found</h5>
+</div>
