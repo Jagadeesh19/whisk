@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {NgForm} from "@angular/forms";
+import {domain_name} from "../../server.config";
 
 @Component({
   selector: 'app-reset-password',
@@ -21,7 +22,7 @@ export class ResetPasswordComponent implements OnInit {
 
   onResetRequest(resetForm:NgForm){
     this.isLoading=true;
-    this.http.post("http://localhost:3000/api/reset",resetForm.value)
+    this.http.post(domain_name+"/api/reset",resetForm.value)
       .subscribe(
         response=>{
           this.isLoading=false;

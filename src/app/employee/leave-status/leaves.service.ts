@@ -4,6 +4,7 @@ import {LeaveModel} from "./leave.model";
 import {AuthService} from "../../auth/auth.service";
 import {HttpClient} from "@angular/common/http";
 import {Subject} from "rxjs";
+import {domain_name} from "../../server.config";
 
 @Injectable()
 export class LeavesService {
@@ -20,7 +21,7 @@ export class LeavesService {
   }
 
   fetchLeaves(leaveType,year,month){
-    this.http.post<{leaves:LeaveModel[]}>("http://localhost:3000/api/employee/leaves",{
+    this.http.post<{leaves:LeaveModel[]}>(domain_name+"/api/employee/leaves",{
       employeeId:this.employeeId,
       leaveType:leaveType,
       year:year,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {AuthService} from "../../auth/auth.service";
+import {domain_name} from "../../server.config";
 
 enum Months {
   January,
@@ -67,7 +68,7 @@ export class LeaveStatusComponent implements OnInit {
 
   ngOnInit() {
     const employeeId=this.authService.getUserId();
-    this.http.get<{joinDate:string}>("http://localhost:3000/api/employee/join-date/"+employeeId)
+    this.http.get<{joinDate:string}>(domain_name+"/api/employee/join-date/"+employeeId)
       .subscribe(response=>{
         const isoJoinDate=response.joinDate;
         this.joinDate=new Date(isoJoinDate);

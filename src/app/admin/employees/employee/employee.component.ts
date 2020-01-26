@@ -4,6 +4,7 @@ import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 
 import {EmployeeService} from "../employee.service";
 import {EmployeeModel} from "../../employee.model";
+import {domain_name} from "../../../server.config";
 
 
 @Component({
@@ -37,7 +38,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   onRemoveEmployee(){
-    this.http.delete(`http://localhost:3000/api/admin/remove/${this.employee._id}`,{
+    this.http.delete(`${domain_name}/api/admin/remove/${this.employee._id}`,{
       observe:"response"
     })
       .subscribe(

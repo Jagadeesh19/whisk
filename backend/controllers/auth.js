@@ -11,7 +11,7 @@ const Employee=require("../models/employee");
 
 const transporter=nodemailer.createTransport(sendgrid({
   auth:{
-    api_key:"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"
+    api_key:API_KEY
   }
 }))
 

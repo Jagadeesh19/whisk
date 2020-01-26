@@ -6,6 +6,7 @@ import {ActivatedRoute} from "@angular/router";
 
 import {EmployeeService} from "../employees/employee.service";
 import {EmployeeModel} from "../employee.model";
+import {domain_name} from "../../server.config";
 
 @Component({
   selector: 'app-add-employee',
@@ -90,7 +91,7 @@ export class AddEmployeeComponent implements OnInit {
     this.employee.dateOfBirth=new Date(this.dob.year,this.dob.month-1,this.dob.day);
     console.log(this.employee.dateOfBirth);
     if (!this.edit){
-      this.http.post<{message:string}>("http://localhost:3000/api/admin/add",this.employee)
+      this.http.post<{message:string}>(domain_name+"/api/admin/add",this.employee)
         .subscribe((responseData)=>{
           console.log(responseData);
           if (responseData.message==="Success"){
@@ -110,7 +111,7 @@ export class AddEmployeeComponent implements OnInit {
     }
     else {
       this.employee._id=this.employeeId;
-      this.http.post<{message:string}>("http://localhost:3000/api/admin/edit",this.employee)
+      this.http.post<{message:string}>(domain_name+"/api/admin/edit",this.employee)
         .subscribe(
             (response)=>{
               this.addEmployeeForm.reset();

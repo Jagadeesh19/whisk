@@ -3,6 +3,7 @@ import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/form
 import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
 import {HttpClient} from "@angular/common/http";
 import {AuthService} from "../../auth/auth.service";
+import {domain_name} from "../../server.config";
 
 @Component({
   selector: 'app-leave-grant',
@@ -70,7 +71,7 @@ export class LeaveGrantComponent implements OnInit {
     request.startDate=new Date(startDate.year,startDate.month-1,startDate.day)
     request.endDate=new Date(endDate.year,endDate.month-1,endDate.day);
     request.employeeId=this.authService.getUserId();
-    this.http.post<{message:string}>("http://localhost:3000/api/employee/leave-grant",request)
+    this.http.post<{message:string}>(domain_name+"/api/employee/leave-grant",request)
       .subscribe(
         response=>{
           this.isLoading=false;

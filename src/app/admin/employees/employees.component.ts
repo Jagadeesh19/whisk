@@ -5,6 +5,7 @@ import {Subscription} from "rxjs";
 
 import {EmployeeService} from "./employee.service";
 import {EmployeeModel} from "../employee.model";
+import {domain_name} from "../../server.config";
 
 @Component({
   selector: 'app-admin-employees',
@@ -43,7 +44,7 @@ export class EmployeesComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.http.get("http://localhost:3000/api/admin/employees")
+    this.http.get(domain_name+"/api/admin/employees")
       .subscribe((employees:EmployeeModel[])=>{
         this.employees=employees;
         this.employeeService.initialize(this.employees);

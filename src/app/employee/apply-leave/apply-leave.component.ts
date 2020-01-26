@@ -6,6 +6,7 @@ import {HttpClient} from "@angular/common/http";
 import {AuthService} from "../../auth/auth.service";
 import {LeaveModel} from "../leave-status/leave.model";
 import {ActivatedRoute, Router} from "@angular/router";
+import {domain_name} from "../../server.config";
 
 @Component({
   selector: 'app-apply-leave',
@@ -106,7 +107,7 @@ export class ApplyLeaveComponent implements OnInit {
     leave.endDate=this.ngbToDate(leave.endDate);
     leave.appliedDate=new Date();
 
-    this.http.post<{message:string}>("http://localhost:3000/api/employee/apply-leave",leave)
+    this.http.post<{message:string}>(domain_name+"/api/employee/apply-leave",leave)
       .subscribe(
         response=>{
           this.isLoading=false;
