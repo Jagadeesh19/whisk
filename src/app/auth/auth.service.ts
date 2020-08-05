@@ -4,6 +4,7 @@ import {Subject} from "rxjs";
 import {Router} from "@angular/router";
 
 import {AuthData} from "./auth-data.model";
+import {domain_name} from "../server.config";
 
 @Injectable({providedIn:"root"})
 export class AuthService {
@@ -34,7 +35,7 @@ export class AuthService {
 
   login(username:string,password:string){
     const authData:AuthData={username:username,password:password}
-    this.http.post<{token:string,expiresIn:number,userType:string,userId:string}>("http://localhost:3000/api/login",authData)
+    this.http.post<{token:string,expiresIn:number,userType:string,userId:string}>(domain_name+"/api/login",authData)
       .subscribe(
         response=>{
           const token=response.token;

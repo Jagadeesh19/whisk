@@ -44,8 +44,9 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-backend/.env
+
+
 backend/node_modules/
+backend/nodemon.json
 backend/package-lock.json
-backend/public/
-src/app/server.config.ts
+backend/public/*
