@@ -6,7 +6,7 @@ This is my internship project at whisk software private ltd. It is a remake of m
 
 The url for the website is
 
-https://whisk.herokuapp.com/
+https://whiskhr.herokuapp.com/
 
 
 
